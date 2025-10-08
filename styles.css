@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #e2dede;
-    margin: 0%;
+    margin: 0;
     padding: 0;
 }
 .container {
@@ -67,4 +67,67 @@ h1, h3 {
     text-decoration: none;
     color: black;
     font-size: 20px;;
+}
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #dd0202;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #dd0202;
+    z-index: 1000;
+}
+.input-movie-field {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 16px;
+}
+.top-nav button {
+    background-color: #ffffff;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.top-nav button:hover {
+    background-color: #45a049;
+}
+.popular-movies, .recommended-movies, .other-movies {
+    margin: 100px 40px 10px 40px;
+    background-color: darkgreen
+}
+.popular-movies h2, .recommended-movies h2, .other-movies h2 {
+    margin-bottom: 20px;
+}
+.box-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+.box-1 {
+    min-width: 200px;
+    min-height: 250px;
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
