@@ -152,3 +152,25 @@ body:has(.dashboard-container) {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
+/* Styles for profile.html */
+body:has(.profile-container) {
+    font-family: Arial, sans-serif;
+    background-image: url('images/AdobeStock_334993551.jpeg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+.profile-container {
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(204, 204, 204, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+}
