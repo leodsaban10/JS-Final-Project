@@ -155,7 +155,7 @@ body:has(.dashboard-container) {
 /* Styles for profile.html */
 body:has(.profile-container) {
     font-family: Arial, sans-serif;
-    background-image: url('images/AdobeStock_334993551.jpeg');
+    background-image: url('images/AdobeStock_485940789.jpeg');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -173,4 +173,28 @@ body:has(.profile-container) {
     background-color: rgba(204, 204, 204, 0.2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 30px;
+    text-align: center;
+}
+.profile-container h1 {
+    margin-bottom: 20px;
+}
+.profile-container h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.profile-container p {
+    margin: 10px 0;
+}
+.profile-container button {
+    background-color: #ffffff;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+.profile-container button:hover {
+    background-color: #45a049;
 }
