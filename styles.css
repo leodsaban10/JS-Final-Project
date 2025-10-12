@@ -105,7 +105,17 @@ body:has(.dashboard-container) {
     left: 0;
     z-index: 1000;
     border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
 }
+
+.top-nav h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+}
+
 .input-movie-field {
     width: 50%;
     padding: 10px;
@@ -197,4 +207,40 @@ body:has(.profile-container) {
 }
 .profile-container button:hover {
     background-color: #45a049;
+}
+
+.notification-setting {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.toggle-btn {
+    background-color: #ffffff;
+    color: black;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.toggle-btn.on {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.toggle-btn.off {
+    background-color: #f44336;
+    color: white;
+    box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+}
+
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
