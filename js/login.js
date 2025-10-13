@@ -1,7 +1,4 @@
-// Login page functionality
-
-// Define valid credentials (you can change these)
-const VALID_USERNAME = "admin";
+const VALID_USERNAME = "username";
 const VALID_PASSWORD = "password123";
 
 function handleLogin() {
@@ -21,10 +18,8 @@ function handleLogin() {
     
     // Check if credentials are correct
     if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-        // Login successful - redirect to main page
         window.location.href = 'mainpage.html';
     } else {
-        // Login failed - show error
         showError("Invalid username or password");
     }
 }

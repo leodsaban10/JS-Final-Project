@@ -47,7 +47,7 @@ h1, h2, h3 {
 }
 .button-container button {
     background-color: #ffffff;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
     border: none;
     border-radius: 30px;
@@ -73,7 +73,7 @@ h1, h2, h3 {
     background-color: #ff4444;
     color: white;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 30px;
     margin: 10px 0;
     text-align: center;
     font-size: 14px;
