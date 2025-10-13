@@ -12,21 +12,24 @@
         <h3>To get started, please log in with your <br/>
             credentials.</h3>
         <div class="input-container">   
-            <input type="text" placeholder="Username" class="input-field">
+            <input type="text" placeholder="Username" class="input-field" id="username">
         </div>
         <div class="input-container">
-            <input type="password" placeholder="Password" class="input-field">
+            <input type="password" placeholder="Password" class="input-field" id="password">
         </div>
+        <div id="error-message" class="error-message" style="display: none;"></div>
         <div class="checkbox-container">
             <input type="checkbox" id="remember-me">
             <label for="remember-me">Remember Me</label>
         </div>
         <div class="button-container">
-        <button><a href="mainpage.html" class="btn">Log In</a></button>
+        <button onclick="handleLogin()" class="btn">Log In</button>
         </div>
         <div class="forgot-password">
         <a href="forgot-password.html">Forgot Password</a>
         </div>
     </div>    
+    
+    <script src="../js/login.js"></script>
 </body>
 </html>

@@ -69,6 +69,16 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
+.error-message {
+    background-color: #ff4444;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
 .btn {
     padding: 0px 70px;
     text-decoration: none;
