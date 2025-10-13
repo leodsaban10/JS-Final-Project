@@ -1,4 +1,3 @@
-// Profile page JavaScript functionality
 let notificationsEnabled = true;
 
 function toggleNotifications() {

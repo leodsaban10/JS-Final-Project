@@ -7,16 +7,13 @@ function handleLogin() {
     const password = document.getElementById('password').value;
     const errorMessage = document.getElementById('error-message');
     
-    // Clear any previous error messages
     errorMessage.style.display = 'none';
     
-    // Check if fields are empty
     if (!username || !password) {
         showError("Please enter both username and password");
         return;
     }
     
-    // Check if credentials are correct
     if (username === VALID_USERNAME && password === VALID_PASSWORD) {
         window.location.href = 'mainpage.html';
     } else {
