@@ -10,148 +10,43 @@
   <div class="dashboard-container">
        <div class="top-nav">
             <h2>NOVA</h2>
-            <input type="text" placeholder="Search Movie" class="input-movie-field">
-            <button class="btn">Search</button>
+            <input type="text" placeholder="Search Movie" class="input-movie-field" id="search-input">
+            <button class="btn" onclick="searchMovies()">Search</button>
             <button class="btn" onclick="window.location.href='profile.html'">Profile</button>
             <button class="btn" onclick="window.location.href='loginpage.html'">Log Out</button>
         </div>
         <div class="content">
             <div class="popular-movies">
                 <h2>Popular Movies</h2>
-                <div class="box-container">
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 1</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
+                <div class="box-container" id="popular-container">
+                    <!-- Movies will be loaded here by JavaScript -->
                 </div>
             </div>
             <div class="recommended-movies">
                 <h2>Recommended for You</h2>
-                <div class="box-container">
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 1</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
+                <div class="box-container" id="recommended-container">
+                    <!-- Top rated movies will be loaded here by JavaScript -->
                 </div>
             </div>
-            <div class="other-movies">
-                <h2>Movies</h2>
-                <div class="box-container">
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 1</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="box-content">
-                            <h3>Movie Title 2</h3>
-                        </div>
-                    </div>
+            <div class="other-movies" id="search-section" style="display: none;">
+                <h2>Search Results</h2>
+                <div class="box-container" id="search-container">
+                    <!-- Search results will be displayed here -->
+                    <p id="search-message" style="color: white; text-align: center; width: 100%;">Use the search bar above to find movies</p>
+                </div>
+            </div>
+            
+            <div class="saved-movies" id="saved-section" style="display: none;">
+                <h2>Saved Movies</h2>
+                <div class="box-container" id="saved-container">
+                    <!-- Saved movies will be loaded here by JavaScript -->
+                    <p id="saved-message" style="color: white; text-align: center; width: 100%;">No saved movies yet</p>
                 </div>
             </div>
         </div>    
   </div>
+  
+  <script src="../js/movieAPI.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
