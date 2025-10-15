@@ -254,3 +254,342 @@ body:has(.profile-container) {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* =====================================
+   MOBILE-FIRST RESPONSIVE DESIGN
+   ===================================== */
+
+/* Base styles (Mobile first - 320px and up) */
+* {
+    box-sizing: border-box;
+}
+
+/* Login Page Responsive */
+.login-container {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.input-field {
+    width: 100%;
+    font-size: 16px; /* Prevents zoom on iOS */
+}
+
+.checkbox-container {
+    padding-left: 20px;
+    text-align: center;
+}
+
+/* Main Dashboard Responsive */
+.dashboard-container {
+    padding: 0 10px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-wrap: wrap;
+}
+
+.top-nav h2 {
+    font-size: 2rem;
+    margin: 0;
+    order: 1;
+}
+
+.input-movie-field {
+    width: 100%;
+    max-width: 300px;
+    order: 3;
+    margin-top: 10px;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    order: 2;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Mobile Navigation */
+.nav-buttons {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    order: 4;
+    width: 100%;
+}
+
+.nav-buttons.active {
+    display: flex;
+}
+
+.nav-buttons button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-buttons button:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+.top-nav button:not(.hamburger-btn):not(.nav-buttons button) {
+    padding: 8px 15px;
+    font-size: 14px;
+    min-width: 80px;
+}
+
+.content {
+    margin-top: 20px;
+    padding: 15px 10px;
+}
+
+/* Movie Cards Responsive */
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.box-1 {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Profile Page Responsive */
+.profile-container {
+    width: 95%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px 15px;
+}
+
+.toggle-btn {
+    min-width: 150px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+    .top-nav h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hamburger-btn {
+        width: 25px;
+        height: 20px;
+    }
+    
+    .input-movie-field {
+        max-width: 250px;
+    }
+    
+    .box-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+    }
+    
+    .login-container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+}
+
+/* Tablet (481px and up) */
+@media (min-width: 481px) {
+    .login-container {
+        width: 80%;
+        max-width: 450px;
+        margin: 80px auto;
+    }
+    
+    .top-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        padding: 20px 15px;
+    }
+    
+    .top-nav h2 {
+        font-size: 2.5rem;
+        margin: 0;
+        order: 1;
+    }
+    
+    .input-movie-field {
+        width: 40%;
+        max-width: none;
+        order: 2;
+        margin-top: 0;
+    }
+    
+    /* Hide hamburger menu on tablet and up */
+    .hamburger-btn {
+        display: none;
+    }
+    
+    /* Show navigation buttons inline on tablet and up */
+    .nav-buttons {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: none;
+        padding: 0;
+        gap: 10px;
+        border-radius: 0;
+        box-shadow: none;
+        order: 3;
+        width: auto;
+    }
+    
+    .nav-buttons button {
+        width: auto;
+        padding: 8px 15px;
+        font-size: 14px;
+        min-width: 80px;
+    }
+    
+    .content {
+        margin-top: 100px;
+        padding: 20px 15px;
+    }
+    
+    .box-container {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* Desktop (769px and up) */
+@media (min-width: 769px) {
+    .login-container {
+        width: 500px;
+        margin: 100px auto;
+        padding: 20px;
+    }
+    
+    .top-nav {
+        padding: 20px 40px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    
+    .top-nav h2 {
+        font-size: 3.5rem;
+    }
+    
+    .input-movie-field {
+        width: 50%;
+    }
+    
+    .nav-buttons {
+        gap: 15px;
+    }
+    
+    .nav-buttons button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    
+    .content {
+        margin-top: 100px;
+        padding: 20px;
+    }
+    
+    .box-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .dashboard-container {
+        padding: 0;
+    }
+    
+    .profile-container {
+        width: 60%;
+        max-width: 600px;
+        padding: 30px;
+    }
+    
+    .toggle-btn {
+        min-width: 200px;
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+}
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+    .box-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+    
+    .content {
+        padding: 20px 40px;
+    }
+    
+    .profile-container {
+        width: 50%;
+        max-width: 700px;
+    }
+}

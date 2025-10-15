@@ -11,10 +11,21 @@
        <div class="top-nav">
             <h2>NOVA</h2>
             <input type="text" placeholder="Search Movie" class="input-movie-field" id="search-input">
-            <button class="btn" onclick="searchMovies()">Search</button>
-            <button class="btn" onclick="showSavedMovies()">Saved Movies</button>
-            <button class="btn" onclick="window.location.href='profile.html'">Profile</button>
-            <button class="btn" onclick="window.location.href='loginpage.html'">Log Out</button>
+            
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons" id="nav-buttons">
+                <button class="btn" onclick="searchMovies(); closeMobileMenu()">Search</button>
+                <button class="btn" onclick="showSavedMovies(); closeMobileMenu()">Saved Movies</button>
+                <button class="btn" onclick="window.location.href='profile.html'; closeMobileMenu()">Profile</button>
+                <button class="btn" onclick="window.location.href='loginpage.html'; closeMobileMenu()">Log Out</button>
+            </div>
         </div>
         <div class="content">
             <div class="popular-movies">

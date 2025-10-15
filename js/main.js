@@ -235,8 +235,8 @@ function createMovieCard(movie) {
     movieDiv.innerHTML = `
         <img src="${movieAPI.getImageUrl(movie.poster_path)}" 
              alt="${movie.title}" 
-             style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px 10px 0 0;">
-        <div class="box-content" style="padding: 10px;">
+             style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px 10px 0 0;">
+        <div class="box-content" style="padding: 15px 10px 20px 10px; background: rgba(255, 255, 255, 0.3); border-radius: 0 0 10px 10px;">
             <h3 style="margin: 0 0 5px 0; font-size: 16px; color: black;">${movie.title}</h3>
             <p style="margin: 0; font-size: 12px; color: #666;">Year: ${year}</p>
             <p style="margin: 0; font-size: 12px; color: #666;">Rating: ${movie.vote_average.toFixed(1)}/10</p>
@@ -449,3 +449,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Mobile hamburger menu functionality
+function toggleMobileMenu() {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navButtons = document.getElementById('nav-buttons');
+    
+    if (hamburgerBtn && navButtons) {
+        hamburgerBtn.classList.toggle('active');
+        navButtons.classList.toggle('active');
+    }
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navButtons = document.getElementById('nav-buttons');
+    const topNav = document.querySelector('.top-nav');
+    
+    // If click is outside the nav area and menu is open, close it
+    if (hamburgerBtn && navButtons && !topNav.contains(event.target)) {
+        hamburgerBtn.classList.remove('active');
+        navButtons.classList.remove('active');
+    }
+});
+
+// Close mobile menu when nav button is clicked
+function closeMobileMenu() {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navButtons = document.getElementById('nav-buttons');
+    
+    if (hamburgerBtn && navButtons) {
+        hamburgerBtn.classList.remove('active');
+        navButtons.classList.remove('active');
+    }
+}
