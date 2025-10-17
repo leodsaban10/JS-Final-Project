@@ -399,16 +399,98 @@ body:has(.profile-container) {
 
 /* Movie Cards Responsive */
 .box-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
     padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.box-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.box-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.box-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.box-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Swiper Styles */
+.movie-swiper {
+    padding: 10px 0 50px 0;
+    margin: 0 -20px;
+}
+
+.movie-swiper .swiper-wrapper {
+    padding: 0 20px;
+}
+
+.movie-swiper .swiper-slide {
+    width: auto;
+    height: auto;
 }
 
 .box-1 {
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
+    width: 200px;
+    height: 350px;
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Swiper Navigation */
+.movie-swiper .swiper-button-next,
+.movie-swiper .swiper-button-prev {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.7);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: -20px;
+    transition: all 0.3s ease;
+}
+
+.movie-swiper .swiper-button-next:hover,
+.movie-swiper .swiper-button-prev:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.movie-swiper .swiper-button-next::after,
+.movie-swiper .swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Swiper Pagination */
+.movie-swiper .swiper-pagination {
+    bottom: 10px;
+}
+
+.movie-swiper .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    width: 8px;
+    height: 8px;
+}
+
+.movie-swiper .swiper-pagination-bullet-active {
+    background: #ffffff;
+    transform: scale(1.2);
 }
 
 /* Profile Page Responsive */
@@ -441,8 +523,14 @@ body:has(.profile-container) {
     }
     
     .box-container {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 10px;
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
+    /* Keep same card size on mobile */
+    .box-1 {
+        width: 200px;
+        height: 350px;
     }
     
     .login-container {
@@ -514,8 +602,13 @@ body:has(.profile-container) {
     }
     
     .box-container {
-        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-        gap: 15px;
+        gap: 18px;
+    }
+    
+    /* Keep same card size on tablet */
+    .box-1 {
+        width: 200px;
+        height: 350px;
     }
 }
 
@@ -556,8 +649,13 @@ body:has(.profile-container) {
     }
     
     .box-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
+    }
+    
+    /* Keep same card size on desktop */
+    .box-1 {
+        width: 200px;
+        height: 350px;
     }
     
     .dashboard-container {
@@ -580,8 +678,13 @@ body:has(.profile-container) {
 /* Large Desktop (1200px and up) */
 @media (min-width: 1200px) {
     .box-container {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 25px;
+    }
+    
+    /* Keep same card size on large desktop */
+    .box-1 {
+        width: 200px;
+        height: 350px;
     }
     
     .content {

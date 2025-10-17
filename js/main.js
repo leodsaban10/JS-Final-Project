@@ -106,7 +106,7 @@ async function searchMovies() {
         }
         
         // Show loading message in popular container
-        popularContainer.innerHTML = '<p style="color: white; text-align: center; width: 100%;">Searching...</p>';
+        popularContainer.innerHTML = '<div class="swiper-slide"><p style="color: white; text-align: center; width: 100%;">Searching...</p></div>';
         
         const movies = await movieAPI.searchMovies(query);
         console.log('Search results:', movies.length);
@@ -150,7 +150,16 @@ function addBackToPopularButton(container) {
     `;
     backButton.onclick = restorePopularMovies;
     
-    container.appendChild(backButton);
+    // Create a swiper slide for the button if it's a swiper container
+    if (container.classList.contains('swiper-wrapper')) {
+        const slideDiv = document.createElement('div');
+        slideDiv.className = 'swiper-slide';
+        slideDiv.style.width = 'auto';
+        slideDiv.appendChild(backButton);
+        container.appendChild(slideDiv);
+    } else {
+        container.appendChild(backButton);
+    }
 }
 
 // Restore popular movies to the top section
@@ -178,7 +187,7 @@ async function restorePopularMovies() {
     }
     
     // Show loading message
-    popularContainer.innerHTML = '<p style="color: white; text-align: center; width: 100%;">Loading popular movies...</p>';
+    popularContainer.innerHTML = '<div class="swiper-slide"><p style="color: white; text-align: center; width: 100%;">Loading popular movies...</p></div>';
     
     // Reload popular movies
     await loadPopularMovies();
@@ -197,9 +206,66 @@ function displayMovies(movies, container) {
     // Clear container
     container.innerHTML = '';
     
+    // Check if this is a Swiper container
+    const isSwiper = container.classList.contains('swiper-wrapper');
+    
     movies.forEach(movie => {
         const movieCard = createMovieCard(movie);
-        container.appendChild(movieCard);
+        
+        if (isSwiper) {
+            // Wrap in swiper-slide for Swiper containers
+            const slideDiv = document.createElement('div');
+            slideDiv.className = 'swiper-slide';
+            slideDiv.appendChild(movieCard);
+            container.appendChild(slideDiv);
+        } else {
+            // Regular container
+            container.appendChild(movieCard);
+        }
+    });
+    
+    // Initialize Swiper if it's a swiper container
+    if (isSwiper) {
+        initializeSwiper(container.closest('.swiper'));
+    }
+}
+
+// Initialize Swiper for a container
+function initializeSwiper(swiperElement) {
+    if (!swiperElement) return;
+    
+    // Destroy existing swiper if it exists
+    if (swiperElement.swiper) {
+        swiperElement.swiper.destroy();
+    }
+    
+    new Swiper(swiperElement, {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        freeMode: true,
+        navigation: {
+            nextEl: swiperElement.querySelector('.swiper-button-next'),
+            prevEl: swiperElement.querySelector('.swiper-button-prev'),
+        },
+        pagination: {
+            el: swiperElement.querySelector('.swiper-pagination'),
+            clickable: true,
+            dynamicBullets: true,
+        },
+        breakpoints: {
+            320: {
+                spaceBetween: 15,
+            },
+            768: {
+                spaceBetween: 18,
+            },
+            1024: {
+                spaceBetween: 20,
+            },
+            1200: {
+                spaceBetween: 25,
+            }
+        }
     });
 }
 
@@ -235,23 +301,25 @@ function createMovieCard(movie) {
     movieDiv.innerHTML = `
         <img src="${movieAPI.getImageUrl(movie.poster_path)}" 
              alt="${movie.title}" 
-             style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px 10px 0 0;">
-        <div class="box-content" style="padding: 15px 10px 20px 10px; background: rgba(255, 255, 255, 0.3); border-radius: 0 0 10px 10px;">
-            <h3 style="margin: 0 0 5px 0; font-size: 16px; color: black;">${movie.title}</h3>
-            <p style="margin: 0; font-size: 12px; color: #666;">Year: ${year}</p>
-            <p style="margin: 0; font-size: 12px; color: #666;">Rating: ${movie.vote_average.toFixed(1)}/10</p>
+             style="width: 100%; height: 260px; object-fit: cover; border-radius: 10px 10px 0 0; flex-shrink: 0;">
+        <div class="box-content" style="padding: 10px; background: rgba(255, 255, 255, 0.3); border-radius: 0 0 10px 10px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="margin: 0 0 8px 0; font-size: 14px; color: black; line-height: 1.2; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${movie.title}</h3>
+                <p style="margin: 0 0 4px 0; font-size: 11px; color: #666;">Year: ${year}</p>
+                <p style="margin: 0; font-size: 11px; color: #666;">Rating: ${movie.vote_average.toFixed(1)}/10</p>
+            </div>
             <button class="save-btn ${isSaved ? 'saved' : ''}" 
                     style="
                         position: absolute; 
-                        top: 10px; 
-                        right: 10px; 
+                        top: 8px; 
+                        right: 8px; 
                         background: ${isSaved ? '#4CAF50' : 'rgba(0,0,0,0.7)'}; 
                         color: white; 
                         border: none; 
-                        padding: 8px 12px; 
-                        border-radius: 20px; 
+                        padding: 6px 10px; 
+                        border-radius: 15px; 
                         cursor: pointer; 
-                        font-size: 12px;
+                        font-size: 11px;
                         font-weight: bold;
                         transition: background-color 0.3s ease;
                     ">${isSaved ? '❤️ Saved' : '🤍 Save'}</button>

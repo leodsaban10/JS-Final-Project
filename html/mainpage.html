@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content</title>
     <link rel="stylesheet" href="../styles.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
   <div class="dashboard-container">
@@ -30,34 +32,56 @@
         <div class="content">
             <div class="popular-movies">
                 <h2>Popular Movies</h2>
-                <div class="box-container" id="popular-container">
-                    <!-- Movies will be loaded here by JavaScript -->
+                <div class="swiper movie-swiper" id="popular-swiper">
+                    <div class="swiper-wrapper" id="popular-container">
+                        <!-- Movies will be loaded here by JavaScript -->
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
             <div class="recommended-movies">
                 <h2>Recommended for You</h2>
-                <div class="box-container" id="recommended-container">
-                    <!-- Top rated movies will be loaded here by JavaScript -->
+                <div class="swiper movie-swiper" id="recommended-swiper">
+                    <div class="swiper-wrapper" id="recommended-container">
+                        <!-- Top rated movies will be loaded here by JavaScript -->
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
             <div class="other-movies" id="search-section" style="display: none;">
                 <h2>Search Results</h2>
-                <div class="box-container" id="search-container">
-                    <!-- Search results will be displayed here -->
-                    <p id="search-message" style="color: white; text-align: center; width: 100%;">Use the search bar above to find movies</p>
+                <div class="swiper movie-swiper" id="search-swiper">
+                    <div class="swiper-wrapper" id="search-container">
+                        <!-- Search results will be displayed here -->
+                        <p id="search-message" style="color: white; text-align: center; width: 100%;">Use the search bar above to find movies</p>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
             
             <div class="saved-movies" id="saved-section" style="display: none;">
                 <h2>Saved Movies</h2>
-                <div class="box-container" id="saved-container">
-                    <!-- Saved movies will be loaded here by JavaScript -->
-                    <p id="saved-message" style="color: white; text-align: center; width: 100%;">No saved movies yet</p>
+                <div class="swiper movie-swiper" id="saved-swiper">
+                    <div class="swiper-wrapper" id="saved-container">
+                        <!-- Saved movies will be loaded here by JavaScript -->
+                        <p id="saved-message" style="color: white; text-align: center; width: 100%;">No saved movies yet</p>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>    
   </div>
   
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="../js/movieAPI.js"></script>
   <script src="../js/savedMovies.js"></script>
   <script src="../js/main.js"></script>
