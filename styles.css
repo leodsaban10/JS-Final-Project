@@ -172,6 +172,33 @@ body:has(.dashboard-container) {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
+/* Styles for savedmovies.html */
+body:has(.saved-movies-container) {
+    font-family: Arial, sans-serif;
+    background-image: url('images/AdobeStock_474473904.jpeg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+.saved-movies-container {
+    padding: 100px 40px 40px 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.saved-movies-container h1 {
+    margin-bottom: 30px;
+}
+.saved-movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 /* Styles for profile.html */
 body:has(.profile-container) {
     font-family: Arial, sans-serif;
