@@ -338,7 +338,7 @@ function createSavedMovieCard(movie) {
             <div>
                 <h3 style="margin: 0 0 8px 0; font-size: 14px; color: black; line-height: 1.2; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${movie.title}</h3>
                 <p style="margin: 0 0 4px 0; font-size: 11px; color: #666;">Year: ${year}</p>
-                <p style="margin: 0; font-size: 11px; color: #666;">Rating: ${movie.vote_average.toFixed(1)}/10</p>
+                <p style="margin: 0; font-size: 11px; color: #666;">Rating: ${movie.vote_average?.toFixed(1)}/10</p>
             </div>
             <button class="save-btn saved" 
                     style="
