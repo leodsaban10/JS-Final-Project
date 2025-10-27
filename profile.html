@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>John's Profile</h1>
+        <p>Welcome to your profile page!</p>
+        <p>Here you can view and edit your personal information.</p>
+        <div class="personal-info">
+            <h2>Personal Information</h2>
+            <p>Name: John Doe</p>
+            <p id="email-display">Email: john.doe@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </div>
+        <div class="account-settings">
+            <h2>Account Settings</h2>
+            <button>Change your password</button>
+            <button onclick="updateEmailPreferences()">Update your email preferences</button>
+        </div>
+        <div class="subscription-details">
+            <h2>Subscription Details</h2>
+            <p>Current Plan: Premium</p>
+            <p>Renewal Date: January 1, 2025</p>
+            <button>Manage Subscription</button>
+        </div>
+        <div class="notification-setting">
+            <h2>Notification Settings</h2>
+            <button id="notificationToggle" class="toggle-btn" onclick="toggleNotifications()">
+                <span id="toggleText">Notifications: ON</span>
+            </button>
+        </div>
+        <button onclick="window.location.href='mainpage.html'">Back to Watching</button>
+    </div>
+    
+    <script src="js/profile.js"></script>
+</body>
+</html>
